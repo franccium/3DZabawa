@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://10as5ctv2ah1"]
+
+[ext_resource type="Script" path="res://Scripts/GenericEffectHandler.cs" id="1_34xur"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0wkcp"]
+emission_shape = 1
+emission_sphere_radius = 10.08
+scale_min = 0.0
+scale_max = 0.0
+color = Color(0.470588, 0.470588, 0.494118, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_v68mi"]
+radius = 5.763
+
+[sub_resource type="Skin" id="Skin_76byu"]
+
+[node name="MuzzleFlashEffect" type="Node3D"]
+script = ExtResource("1_34xur")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_0wkcp")
+draw_pass_1 = SubResource("SphereMesh_v68mi")
+draw_skin = SubResource("Skin_76byu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]

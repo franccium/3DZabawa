@@ -1,0 +1,241 @@
+<mxfile host="app.diagrams.net" modified="2023-11-24T21:39:41.483Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="HnZD7RGaZooCuKs87xiX" version="22.1.4" type="device">
+  <diagram name="Strona-1" id="xvJdZZ0Ri2wL3rcFN8Oc">
+    <mxGraphModel dx="1050" dy="584" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-1" value="ENEMY SYSTEM" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="530" y="70" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="JY3AKg7R-Zrde3YuscOm-2" target="JY3AKg7R-Zrde3YuscOm-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-2" value="CLASS: ENEMY" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+          <mxGeometry x="830" y="330" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="JY3AKg7R-Zrde3YuscOm-3" target="JY3AKg7R-Zrde3YuscOm-22" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="890" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-3" value="Enemy:" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="820" y="440" width="140" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-4" value="Item 1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-3" vertex="1">
+          <mxGeometry y="30" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-5" value="Item 2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-3" vertex="1">
+          <mxGeometry y="60" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-6" value="Item 3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-3" vertex="1">
+          <mxGeometry y="90" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="JY3AKg7R-Zrde3YuscOm-8" target="JY3AKg7R-Zrde3YuscOm-10" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-8" value="CLASS: ENEMY STATE" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+          <mxGeometry x="230" y="70" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="JY3AKg7R-Zrde3YuscOm-10" target="JY3AKg7R-Zrde3YuscOm-12" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="750" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-10" value="Main Controller: EnemyStateMachine" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="230" y="170" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.513;entryY=0.014;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="JY3AKg7R-Zrde3YuscOm-12" target="JY3AKg7R-Zrde3YuscOm-15" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="840" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-12" value="EnemyStateNodes" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="230" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-15" value="States:" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="360" width="530" height="140" as="geometry">
+            <mxRectangle x="40" y="360" width="80" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-16" value="Patrol - until player gets in range of sight, keep walking around" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-15" vertex="1">
+          <mxGeometry y="30" width="530" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-17" value="Wait - when the player gets out of range, wait for a sec then go to patrol" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-15" vertex="1">
+          <mxGeometry y="60" width="530" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-18" value="Attack - when the player gets in range, initialise an attack (which varies depending on EnemyType)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-15" vertex="1">
+          <mxGeometry y="90" width="530" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-22" value="EnemyTypes" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="820" y="600" width="140" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-23" value="MeleeEnemy" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-22" vertex="1">
+          <mxGeometry y="30" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-24" value="RangerEnemy" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-22" vertex="1">
+          <mxGeometry y="60" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-25" value="CasterEnemy" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-22" vertex="1">
+          <mxGeometry y="90" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="JY3AKg7R-Zrde3YuscOm-29" target="JY3AKg7R-Zrde3YuscOm-39" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1370" y="960" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-29" value="ArcherEnemy" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+          <mxGeometry x="1310" y="840" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="JY3AKg7R-Zrde3YuscOm-24" target="JY3AKg7R-Zrde3YuscOm-29" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="990" y="830" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="JY3AKg7R-Zrde3YuscOm-35" target="JY3AKg7R-Zrde3YuscOm-44" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1550" y="1090" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-35" value="GunslingerEnemy" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+          <mxGeometry x="1480" y="960" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="JY3AKg7R-Zrde3YuscOm-24" target="JY3AKg7R-Zrde3YuscOm-35" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1110" y="942" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="JY3AKg7R-Zrde3YuscOm-37" target="JY3AKg7R-Zrde3YuscOm-49" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1780" y="930" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-37" value="SniperEnemy" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+          <mxGeometry x="1720" y="800" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="JY3AKg7R-Zrde3YuscOm-24" target="JY3AKg7R-Zrde3YuscOm-37" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1030" y="1040" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-39" value="ArcherEnemy&lt;br&gt;(middle ranged, uses stealth combat and agility)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=70;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1290" y="950" width="140" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-40" value="Item 1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-39" vertex="1">
+          <mxGeometry y="70" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-41" value="Item 2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-39" vertex="1">
+          <mxGeometry y="100" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-42" value="Item 3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-39" vertex="1">
+          <mxGeometry y="130" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-44" value="GunslingerEnemy&lt;br&gt;(middle/close ranged, uses agility and fast movements, dashes and rolls around with light weapons)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=100;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1470" y="1070" width="140" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-45" value="Item 1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-44" vertex="1">
+          <mxGeometry y="100" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-46" value="Item 2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-44" vertex="1">
+          <mxGeometry y="130" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-47" value="Item 3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-44" vertex="1">
+          <mxGeometry y="160" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-49" value="SniperEnemy&lt;br&gt;(stays at his max range, may reposition, uses sniper attacks with high precision and velocity)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=80;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1710" y="870" width="140" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-50" value="Item 1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-49" vertex="1">
+          <mxGeometry y="80" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-51" value="Item 2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-49" vertex="1">
+          <mxGeometry y="110" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-52" value="Item 3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-49" vertex="1">
+          <mxGeometry y="140" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="JY3AKg7R-Zrde3YuscOm-53" target="JY3AKg7R-Zrde3YuscOm-55" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="1240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="JY3AKg7R-Zrde3YuscOm-53" target="JY3AKg7R-Zrde3YuscOm-60" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="1180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="JY3AKg7R-Zrde3YuscOm-53" target="JY3AKg7R-Zrde3YuscOm-65" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="880" y="1310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-53" value="" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+          <mxGeometry x="590" y="1000" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-55" value="DistantCaster&lt;br&gt;(uses projectiles/aoe from a distance, easy to kill when you get to him, but high resistance (with some barriers etc. to ranged attacks)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=110;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="595" y="1220" width="140" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-56" value="Item 1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-55" vertex="1">
+          <mxGeometry y="110" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-57" value="Item 2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-55" vertex="1">
+          <mxGeometry y="140" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-58" value="Item 3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-55" vertex="1">
+          <mxGeometry y="170" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-60" value="BattleMage&lt;br&gt;(goes close range and berserk, us3es close range high aoe spells and closes distance with some teleports and dashes and buffs)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=110;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="320" y="1110" width="140" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-61" value="Item 1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-60" vertex="1">
+          <mxGeometry y="110" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-62" value="Item 2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-60" vertex="1">
+          <mxGeometry y="140" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-63" value="Item 3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-60" vertex="1">
+          <mxGeometry y="170" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-65" value="Healer/Buffer&lt;br&gt;(stays preferably out of sight and casts buffs)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=70;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="810" y="1250" width="140" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-66" value="Item 1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-65" vertex="1">
+          <mxGeometry y="70" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-67" value="Item 2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-65" vertex="1">
+          <mxGeometry y="100" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-68" value="Item 3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-65" vertex="1">
+          <mxGeometry y="130" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-70" value="List" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="350" width="140" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-71" value="Item 1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-70" vertex="1">
+          <mxGeometry y="30" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-72" value="Item 2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-70" vertex="1">
+          <mxGeometry y="60" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-73" value="Item 3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="JY3AKg7R-Zrde3YuscOm-70" vertex="1">
+          <mxGeometry y="90" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="JY3AKg7R-Zrde3YuscOm-23" target="JY3AKg7R-Zrde3YuscOm-70" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1230" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="JY3AKg7R-Zrde3YuscOm-25" target="JY3AKg7R-Zrde3YuscOm-53" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-76" value="Maybe Handled by classes? at least for now?" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="190" y="520" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="JY3AKg7R-Zrde3YuscOm-77" value="problem with EnemyTypes:&lt;br&gt;should i update them in some batches like have updates for enemytype meleeenemy and things, or will inheriting a type directlly be ok?" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="640" y="460" width="120" height="200" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

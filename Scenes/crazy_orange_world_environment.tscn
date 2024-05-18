@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://w2o2lfvmxto8"]
+
+[ext_resource type="Environment" uid="uid://d28f87p2iqhd3" path="res://Levels/orange_gradiented_environment.tres" id="1_ip1gg"]
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = ExtResource("1_ip1gg")

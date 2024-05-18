@@ -1,0 +1,116 @@
+[gd_scene load_steps=14 format=3 uid="uid://c6fx4dyuuxkba"]
+
+[ext_resource type="Script" path="res://Spells/DarkPillarSpell.cs" id="1_5yf0p"]
+[ext_resource type="Script" path="res://Spells/Scenes/FirePillarAoeSpellEffect.cs" id="2_x4jar"]
+[ext_resource type="Material" uid="uid://dlotkbdp8hca8" path="res://Spells/Scenes/ProcessMaterials/dark_pillar_processmat.tres" id="3_a6e6n"]
+[ext_resource type="CylinderMesh" uid="uid://btcbx0clotd3x" path="res://Spells/Scenes/DrawPasses/dark_pillar_drawpass.tres" id="4_btl06"]
+
+[sub_resource type="CurveTexture" id="CurveTexture_ir205"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wvucl"]
+albedo_color = Color(0.333333, 0, 0.6, 1)
+emission_enabled = true
+emission = Color(0.482353, 0.00392157, 0.933333, 1)
+emission_energy_multiplier = 7.96
+emission_texture = SubResource("CurveTexture_ir205")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t2orp"]
+material = SubResource("StandardMaterial3D_wvucl")
+top_radius = 0.3
+bottom_radius = 0.3
+
+[sub_resource type="Skin" id="Skin_2t0o3"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bu8n1"]
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5jps4"]
+emission_shape = 6
+emission_ring_axis = Vector3(1, 1, 1)
+emission_ring_height = 2.55
+emission_ring_radius = 13.895
+emission_ring_inner_radius = 17.865
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 3, 0)
+linear_accel_min = 6.74
+linear_accel_max = 6.74
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fob04"]
+albedo_color = Color(0.298039, 0, 0.52549, 1)
+emission_enabled = true
+emission = Color(0.2, 0, 0.305882, 1)
+emission_energy_multiplier = 0.81
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_owxnk"]
+material = SubResource("StandardMaterial3D_fob04")
+top_radius = 1.0
+bottom_radius = 1.0
+height = 6.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wbwme"]
+height = 68.6269
+radius = 15.915
+
+[node name="DarkPillarAoeSpell" type="Node3D" node_paths=PackedStringArray("CooldownTimer")]
+script = ExtResource("1_5yf0p")
+InnerDamage = 60
+CooldownTimer = NodePath("CooldownTimer")
+
+[node name="DarkPillarAoeSpellEffect" type="Node3D" parent="."]
+script = ExtResource("2_x4jar")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="DarkPillarAoeSpellEffect"]
+amount = 70
+lifetime = 4.89
+explosiveness = 0.68
+randomness = 0.76
+process_material = ExtResource("3_a6e6n")
+draw_pass_1 = SubResource("CylinderMesh_t2orp")
+draw_skin = SubResource("Skin_2t0o3")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="DarkPillarAoeSpellEffect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 45.9365, 0)
+emitting = false
+amount = 1
+lifetime = 4.89
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_bu8n1")
+draw_pass_1 = ExtResource("4_btl06")
+draw_skin = SubResource("Skin_2t0o3")
+
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="DarkPillarAoeSpellEffect"]
+amount = 15
+lifetime = 4.89
+randomness = 0.76
+process_material = SubResource("ParticleProcessMaterial_5jps4")
+draw_pass_1 = SubResource("CylinderMesh_owxnk")
+draw_skin = SubResource("Skin_2t0o3")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="DarkPillarAoeSpellEffect"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 31.9372, 0)
+light_color = Color(0, 0, 0, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_size = 1.0
+spot_range = 40.9184
+spot_angle = 35.91
+
+[node name="ExplosionDelay" type="Timer" parent="DarkPillarAoeSpellEffect"]
+wait_time = 0.578
+one_shot = true
+
+[node name="AOE" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AOE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32.1966, 0)
+shape = SubResource("CylinderShape3D_wbwme")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="DarkPillarAoeSpellEffect/ExplosionDelay" to="DarkPillarAoeSpellEffect" method="_on_explosion_delay_timeout"]
+[connection signal="body_entered" from="AOE" to="." method="_on_aoe_body_entered"]

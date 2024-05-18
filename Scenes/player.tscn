@@ -1,0 +1,492 @@
+[gd_scene load_steps=19 format=3 uid="uid://dal7o4wr7q4al"]
+
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_drald"]
+[ext_resource type="PackedScene" uid="uid://ciqo51rw5iy6f" path="res://Models/wand12.glb" id="2_jrfmw"]
+[ext_resource type="PackedScene" uid="uid://ovklw6g3cnox" path="res://Scenes/arms_mesh.tscn" id="2_knjnp"]
+[ext_resource type="Script" path="res://Scenes/WeaponEffectsController.cs" id="3_86dnj"]
+[ext_resource type="PackedScene" uid="uid://10as5ctv2ah1" path="res://Scenes/muzzle_flash_effect.tscn" id="4_22jvf"]
+[ext_resource type="PackedScene" uid="uid://qmksd67gars5" path="res://Scenes/bullet_impact_effect.tscn" id="5_7tans"]
+[ext_resource type="PackedScene" uid="uid://cortt4740f5ob" path="res://Scenes/bullet.tscn" id="6_dmnte"]
+[ext_resource type="Script" path="res://Scenes/SpellEffectsController.cs" id="7_nt6cb"]
+[ext_resource type="Script" path="res://Scenes/SpellCastingController.cs" id="9_ik7s5"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_a6sby"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nylvw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h62o8"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_phhpi"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(3.26568, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape3D:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape3D:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(2.84708, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape3D:position:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("OmniLight3D:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("OmniLight3D:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(5.54315, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("OmniLight3D:position:z")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("OmniLight3D:light_energy")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_nnt0y"]
+resource_name = "crouch_animation"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(3.26568, -0.25, 0, 0.25, 0, 2.67305, -0.25, 0, 0.25, 0, 2.81099, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape3D:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7, 1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape3D:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(2.84708, -0.25, 0, 0.25, 0, 2.447, -0.25, 0, 0.25, 0, 2.587, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7, 1)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape3D:position:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7, 1)
+}
+
+[sub_resource type="Animation" id="Animation_qwhbp"]
+resource_name = "hide_flashlight"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(5.91594, -0.25, 0, 0.25, 0, 3.1573, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OmniLight3D:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OmniLight3D:light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_7vujw"]
+resource_name = "show_flashlight"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(3.1573, -0.25, 0, 0.25, 0, 5.91594, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OmniLight3D:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OmniLight3D:light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_4mcrm"]
+resource_name = "uncrouch_animation"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(2.81099, -0.25, 0, 0.25, 0, 3.35, -0.25, 0, 0.25, 0, 3.26568, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape3D:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7, 1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape3D:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(2.587, -0.25, 0, 0.25, 0, 3.082, -0.25, 0, 0.25, 0, 2.84708, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7, 1)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape3D:position:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q45a8"]
+_data = {
+"RESET": SubResource("Animation_phhpi"),
+"crouch_animation": SubResource("Animation_nnt0y"),
+"hide_flashlight": SubResource("Animation_qwhbp"),
+"show_flashlight": SubResource("Animation_7vujw"),
+"uncrouch_animation": SubResource("Animation_4mcrm")
+}
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_gunEffects", "_spellEffects")]
+script = ExtResource("1_drald")
+_gunEffects = NodePath("WeaponEffectsController")
+_spellEffects = NodePath("SpellEffectsController")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.85406, 0)
+mesh = SubResource("CapsuleMesh_a6sby")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.84708, 0)
+shape = SubResource("CapsuleShape3D_nylvw")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.26568, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0.502977, -0.26568, -1.54832)
+size = Vector3(0.2, 0.2, 0.5)
+
+[node name="BarrelEnd" type="Node3D" parent="Camera3D/CSGBox3D"]
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D/CSGBox3D/BarrelEnd"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0129138, 0.283603)
+target_position = Vector3(0, 0, 30)
+
+[node name="CenterContainer" type="CenterContainer" parent="Camera3D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Panel" type="Panel" parent="Camera3D/CenterContainer"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h62o8")
+
+[node name="Wand" parent="Camera3D" instance=ExtResource("2_jrfmw")]
+transform = Transform3D(0.00187377, 0, -0.219992, 0, 0.22, 0, 0.219992, 0, 0.00187377, -0.392828, -0.257304, -0.857069)
+
+[node name="SpellCastOrigin" type="Node3D" parent="Camera3D/Wand"]
+transform = Transform3D(0.00157567, -1.61727e-08, -0.184994, 0, -0.185, 1.61732e-08, -0.184994, -1.37749e-10, -0.00157567, -5.37254, 0.00113201, -0.00752211)
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D/Wand/SpellCastOrigin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0129137, 0.283603)
+target_position = Vector3(0, 0, 1000)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_q45a8")
+}
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.54315, 0)
+light_energy = 0.0
+
+[node name="ArmsMesh" parent="." instance=ExtResource("2_knjnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.796433, 3, -1.6707)
+
+[node name="WeaponEffectsController" type="Node" parent="." node_paths=PackedStringArray("_barrelEnd", "BarrelRayCast")]
+script = ExtResource("3_86dnj")
+_barrelEnd = NodePath("../Camera3D/CSGBox3D/BarrelEnd")
+BarrelRayCast = NodePath("../Camera3D/CSGBox3D/BarrelEnd/RayCast3D")
+_muzzleFlash = ExtResource("4_22jvf")
+_impactEffect = ExtResource("5_7tans")
+_bulletProjectile = ExtResource("6_dmnte")
+
+[node name="SpellEffectsController" type="Node" parent="." node_paths=PackedStringArray("_spellOrigin", "SpellRayCast")]
+script = ExtResource("7_nt6cb")
+_spellOrigin = NodePath("../Camera3D/Wand/SpellCastOrigin")
+SpellRayCast = NodePath("../Camera3D/Wand/SpellCastOrigin/RayCast3D")
+
+[node name="SpellCastingController" type="Node" parent="."]
+script = ExtResource("9_ik7s5")
+
+[node name="SpellIcons" type="Control" parent="SpellCastingController"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 18.0
+offset_top = 17.0
+offset_right = 58.0
+offset_bottom = 57.0
+
+[node name="SpellIconsContainer" type="VBoxContainer" parent="SpellCastingController/SpellIcons"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LearnedSpells" type="Control" parent="SpellCastingController"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LearnedSpellsContainer" type="VBoxContainer" parent="SpellCastingController/LearnedSpells"]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 5.0
+offset_right = 177.0
+offset_bottom = 45.0
+
+[node name="CastedSpell" type="Label" parent="SpellCastingController"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -63.0
+offset_top = 19.0
+offset_right = -23.0
+offset_bottom = 42.0
+grow_horizontal = 0

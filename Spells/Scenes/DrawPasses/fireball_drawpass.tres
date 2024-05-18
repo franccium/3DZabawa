@@ -1,0 +1,15 @@
+[gd_resource type="BoxMesh" load_steps=4 format=3 uid="uid://p6vh15rlmg44"]
+
+[sub_resource type="Gradient" id="Gradient_aw4wc"]
+offsets = PackedFloat32Array(0, 0.513043, 0.956522)
+colors = PackedColorArray(1, 1, 0, 1, 1, 0.427451, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5mhi6"]
+gradient = SubResource("Gradient_aw4wc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hqnt6"]
+albedo_color = Color(1, 0.317647, 0, 1)
+albedo_texture = SubResource("GradientTexture2D_5mhi6")
+
+[resource]
+material = SubResource("StandardMaterial3D_hqnt6")

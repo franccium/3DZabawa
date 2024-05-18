@@ -1,0 +1,8 @@
+pewnie state InitAttack, state InAttackAnim itd
+
+ANIMATION TREE!!
+
+animowane rece gracza
+
+
+particle atakow

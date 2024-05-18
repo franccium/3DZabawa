@@ -1,0 +1,14 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://c7658dxot1iym"]
+
+[resource]
+lifetime_randomness = 0.38
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 11.24
+initial_velocity_max = 56.18
+gravity = Vector3(0, 9.8, 0)
+radial_accel_min = -31.46
+radial_accel_max = 38.2
+tangential_accel_min = -26.97
+tangential_accel_max = 33.71
+damping_min = 15.73
+damping_max = 49.438

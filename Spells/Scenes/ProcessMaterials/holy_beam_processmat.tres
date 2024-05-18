@@ -1,0 +1,9 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://c4p40tkj8tjdr"]
+
+[resource]
+emission_shape = 2
+emission_sphere_radius = 0.1
+direction = Vector3(0, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+turbulence_noise_strength = 11.56

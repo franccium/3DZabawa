@@ -1,0 +1,29 @@
+[gd_resource type="Environment" load_steps=5 format=3 uid="uid://d28f87p2iqhd3"]
+
+[ext_resource type="Gradient" uid="uid://bp8clp1ajb4ei" path="res://Levels/orange_gradient.tres" id="1_1m3ch"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sst6w"]
+gradient = ExtResource("1_1m3ch")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lii2l"]
+
+[sub_resource type="Sky" id="Sky_okbgr"]
+sky_material = SubResource("ProceduralSkyMaterial_lii2l")
+
+[resource]
+background_mode = 2
+background_energy_multiplier = 1.48
+sky = SubResource("Sky_okbgr")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 1.13
+reflected_light_source = 2
+tonemap_mode = 2
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+glow_bloom = 0.11
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0079
+adjustment_enabled = true
+adjustment_color_correction = SubResource("GradientTexture2D_sst6w")

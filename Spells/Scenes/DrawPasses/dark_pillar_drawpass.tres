@@ -1,0 +1,14 @@
+[gd_resource type="CylinderMesh" load_steps=2 format=3 uid="uid://btcbx0clotd3x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyt5d"]
+transparency = 1
+
+[resource]
+material = SubResource("StandardMaterial3D_hyt5d")
+top_radius = 4.0
+bottom_radius = 4.0
+height = 100.0
+radial_segments = 4
+rings = 1
+cap_top = false
+cap_bottom = false

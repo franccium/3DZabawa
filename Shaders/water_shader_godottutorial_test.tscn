@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://b6h3p41vxsxfb"]
+
+[ext_resource type="Shader" path="res://Shaders/water_shader_godottutorial_test.gdshader" id="1_1f5dc"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rok1j"]
+seed = 6
+domain_warp_type = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nqbhp"]
+noise = SubResource("FastNoiseLite_rok1j")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yp08d"]
+render_priority = 0
+shader = ExtResource("1_1f5dc")
+shader_parameter/height_scale = 0.5
+shader_parameter/noise = SubResource("NoiseTexture2D_nqbhp")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_u1l05"]
+material = SubResource("ShaderMaterial_yp08d")
+size = Vector2(10, 10)
+subdivide_width = 32
+subdivide_depth = 32
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dikfc"]
+
+[sub_resource type="Sky" id="Sky_8dak4"]
+sky_material = SubResource("ProceduralSkyMaterial_dikfc")
+
+[sub_resource type="Environment" id="Environment_d1nhf"]
+background_mode = 2
+background_energy_multiplier = 1.5
+sky = SubResource("Sky_8dak4")
+ambient_light_source = 3
+reflected_light_source = 2
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Node3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00489426, 0, -9.82285e-05)
+mesh = SubResource("PlaneMesh_u1l05")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_d1nhf")

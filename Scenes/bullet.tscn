@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cortt4740f5ob"]
+
+[ext_resource type="Script" path="res://Scenes/Bullet.cs" id="1_0wv7b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x6aqd"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nke7t"]
+size = Vector3(1.02342, 1.29717, 1.43462)
+
+[node name="Bullet" type="RigidBody3D"]
+mass = 0.02
+gravity_scale = 0.0
+script = ExtResource("1_0wv7b")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(0.00533491, 0.00658666, 0.0172357)
+material = SubResource("StandardMaterial3D_x6aqd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.012, 0, 0, 0)
+shape = SubResource("BoxShape3D_nke7t")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://b3x6hdbc00lly"]
+
+[ext_resource type="Script" path="res://Spells/FirePillarSpell.cs" id="1_8d0fd"]
+[ext_resource type="Script" path="res://Spells/Scenes/FirePillarAoeSpellEffect.cs" id="2_272gq"]
+[ext_resource type="Material" uid="uid://c7658dxot1iym" path="res://Spells/Scenes/ProcessMaterials/fire_pillar_processmat.tres" id="3_uoqt3"]
+[ext_resource type="Material" uid="uid://d2avdje5xav7e" path="res://Spells/Scenes/ProcessMaterials/fire_pillar_explosionprocessmat.tres" id="4_ymye1"]
+
+[sub_resource type="Gradient" id="Gradient_uwp75"]
+offsets = PackedFloat32Array(0, 0.513043, 0.956522)
+colors = PackedColorArray(1, 1, 0, 1, 1, 0.427451, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_35g3b"]
+gradient = SubResource("Gradient_uwp75")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgsh1"]
+albedo_color = Color(1, 0.317647, 0, 1)
+albedo_texture = SubResource("GradientTexture2D_35g3b")
+
+[sub_resource type="BoxMesh" id="BoxMesh_1d4rd"]
+material = SubResource("StandardMaterial3D_fgsh1")
+
+[sub_resource type="Skin" id="Skin_2t0o3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c5t66"]
+albedo_color = Color(1, 0.313726, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ru6l4"]
+material = SubResource("StandardMaterial3D_c5t66")
+size = Vector3(4, 4, 4)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6mqsl"]
+height = 29.564
+radius = 13.111
+
+[node name="FirePillarAoeSpell" type="Node3D" node_paths=PackedStringArray("CooldownTimer")]
+script = ExtResource("1_8d0fd")
+InnerDamage = 50
+CooldownTimer = NodePath("CooldownTimer")
+
+[node name="FirePillarAoeSpellEffect" type="Node3D" parent="."]
+script = ExtResource("2_272gq")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="FirePillarAoeSpellEffect"]
+amount = 70
+lifetime = 4.89
+explosiveness = 0.68
+randomness = 0.76
+process_material = ExtResource("3_uoqt3")
+draw_pass_1 = SubResource("BoxMesh_1d4rd")
+draw_skin = SubResource("Skin_2t0o3")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="FirePillarAoeSpellEffect"]
+emitting = false
+amount = 70
+lifetime = 4.89
+one_shot = true
+explosiveness = 1.0
+randomness = 0.18
+process_material = ExtResource("4_ymye1")
+draw_pass_1 = SubResource("BoxMesh_ru6l4")
+draw_skin = SubResource("Skin_2t0o3")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="FirePillarAoeSpellEffect"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 17.675, 0)
+light_color = Color(1, 0.396078, 0, 1)
+light_energy = 12.798
+light_indirect_energy = 2.616
+light_volumetric_fog_energy = 9.404
+light_size = 0.273
+spot_range = 26.837
+spot_angle = 35.91
+
+[node name="ExplosionDelay" type="Timer" parent="FirePillarAoeSpellEffect"]
+one_shot = true
+
+[node name="AOE" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AOE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.0463, 0)
+shape = SubResource("CylinderShape3D_6mqsl")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="FirePillarAoeSpellEffect/ExplosionDelay" to="FirePillarAoeSpellEffect" method="_on_explosion_delay_timeout"]
+[connection signal="body_entered" from="AOE" to="." method="_on_aoe_body_entered"]

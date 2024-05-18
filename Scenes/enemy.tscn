@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3 uid="uid://0aa3ci6e3l5f"]
+
+[ext_resource type="Script" path="res://Scripts/TestEnemy.cs" id="1_538fo"]
+[ext_resource type="Script" path="res://Levels/DamageableObject.cs" id="2_heoyn"]
+[ext_resource type="PackedScene" uid="uid://dbx2adtwref3g" path="res://Scenes/bullet_impact_on_enemy_effect.tscn" id="3_wptcb"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nv8nv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hbsc1"]
+albedo_color = Color(0.878431, 0.560784, 0.0745098, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3udl6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i27hy"]
+albedo_color = Color(0, 0.47451, 0.862745, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_676us"]
+radius = 13.2092
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fdho1"]
+radius = 43.0236
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wtjdb"]
+points = PackedVector3Array(-6, 2, -6, 6, 2, -6, 0, 2, 0, -6, 0, -6, 6, 0, -6, 0, 0, 0)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_whow4"]
+points = PackedVector3Array(-16, 2, -16, 16, 2, -16, 0, 2, 0, -16, 0, -16, 16, 0, -16, 0, 0, 0)
+
+[node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1_538fo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.85406, 0)
+mesh = SubResource("CapsuleMesh_nv8nv")
+surface_material_override/0 = SubResource("StandardMaterial3D_hbsc1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.84708, 0)
+shape = SubResource("CapsuleShape3D_3udl6")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, -1.74846e-08, -0.4, 0, 0.4, -1.74846e-08, -0.00288868, 3.3576, -0.375134)
+mesh = SubResource("CapsuleMesh_nv8nv")
+surface_material_override/0 = SubResource("StandardMaterial3D_i27hy")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+
+[node name="PatrolTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CloseHearingRange" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CloseHearingRange"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.79685, 0)
+shape = SubResource("SphereShape3D_676us")
+
+[node name="FarHearingRange" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FarHearingRange"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.79685, 0)
+shape = SubResource("SphereShape3D_fdho1")
+
+[node name="CloseSight" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CloseSight"]
+shape = SubResource("ConvexPolygonShape3D_wtjdb")
+
+[node name="FarSight" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FarSight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79338, 0)
+shape = SubResource("ConvexPolygonShape3D_whow4")
+
+[node name="Head" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4436, 0)
+
+[node name="Damageable" type="Node" parent="."]
+script = ExtResource("2_heoyn")
+ImpactEffect = ExtResource("3_wptcb")
+
+[connection signal="timeout" from="PatrolTimer" to="." method="_on_patrol_timer_timeout"]
+[connection signal="body_entered" from="CloseHearingRange" to="." method="_on_close_hearing_range_body_entered"]
+[connection signal="body_exited" from="CloseHearingRange" to="." method="_on_close_hearing_range_body_exited"]
+[connection signal="body_entered" from="FarHearingRange" to="." method="_on_far_hearing_range_body_entered"]
+[connection signal="body_exited" from="FarHearingRange" to="." method="_on_far_hearing_range_body_exited"]
+[connection signal="body_entered" from="CloseSight" to="." method="_on_close_sight_body_entered"]
+[connection signal="body_exited" from="CloseSight" to="." method="_on_close_sight_body_exited"]
+[connection signal="body_entered" from="FarSight" to="." method="_on_far_sight_body_entered"]
+[connection signal="body_exited" from="FarSight" to="." method="_on_far_sight_body_exited"]

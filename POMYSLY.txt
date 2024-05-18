@@ -1,0 +1,67 @@
+DO ZAIMPLEMENTOWANIA:
+
+SPELLSYSTEM:
+	uzaleznic properties particli od statow spelli
+	zrobic kolizje beama i zrobic by beam ciagle byl przyczepiony do reki poki jest castowany
+PROBLEMY:
+	cooldowny nie działają bo tworzą się nowe instancje po prostu zawsze
+
+
+COMBAT SYSTEM:
+	mozna dmgowac moby latajacymi blokami, wykorzystac ze sa kolizje z rigidbody, dmg zalezny od impulsu ciała / predkosci
+
+
+spell casting system na combosy klawiszy
+kinda magicka w sumie
+do combosow mozna dolaczyc tez jakies shift+f itd (inputeventwithmodifiers chyba)
+wiecej elementów - typ eksplozja, typ poison itd
+ten shape myszka do castowania lmao
+
+movement szybki, skillowy, do wymasterowania
+jak w tym rougue like w piramidzie fps
+jakies mouvement skille
+szybki dynamiczny gameplay
+
+grafika cubeowa
+
+
+
+
+potencjalny rozwój projektu:
+tworzenie własnych spelli (generowanie ich visuali z wyborów gracza, rysowanie przez gracza visuali ktore maja zostać dla nich wygenerowane, opisywanie ich dzialania itd przez gracza)
+
+
+
+--------------------- LORE ---------------------:
+
+SETTING:
+
+
+STORY:
+
+
+PLAYER:
+
+
+ENEMIES:
+
+
+OTHER CHARACTERS:
+
+
+PLAYERS' MECHANICS:
+
+
+THE GOAL:
+
+
+THE PROBLEMS:
+
+
+BACKGROUND:
+
+
+MINOR DETAILS:
+
+
+LOCATIONS:

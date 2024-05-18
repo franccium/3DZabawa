@@ -1,0 +1,114 @@
+[gd_scene load_steps=10 format=3 uid="uid://bcds4sce63ci2"]
+
+[ext_resource type="Script" path="res://Spells/ElectricityFieldSpell.cs" id="1_i4k2r"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b2lt1"]
+direction = Vector3(0, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3jcg"]
+albedo_color = Color(0, 0, 1, 1)
+metallic = 0.48
+metallic_specular = 1.0
+metallic_texture_channel = 2
+emission = Color(0.113725, 0.113725, 0.113725, 1)
+emission_energy_multiplier = 2.51
+normal_scale = -16.0
+rim_tint = 1.0
+clearcoat_enabled = true
+clearcoat_roughness = 0.89
+anisotropy = 1.0
+refraction_enabled = true
+refraction_scale = 0.67
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ac6g7"]
+material = SubResource("StandardMaterial3D_g3jcg")
+top_radius = 4.711
+bottom_radius = 4.711
+height = 0.001
+rings = 1
+
+[sub_resource type="Skin" id="Skin_2t0o3"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n7iji"]
+emission_shape = 3
+emission_box_extents = Vector3(4, 2, 4)
+direction = Vector3(0, 4, 0)
+spread = 51.07
+gravity = Vector3(0, 0.05, 0)
+linear_accel_min = 8.99
+linear_accel_max = 8.99
+scale_max = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7kuu"]
+albedo_color = Color(1, 1, 0, 1)
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 6.84
+grow = true
+grow_amount = -0.753
+distance_fade_mode = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_k0s54"]
+material = SubResource("StandardMaterial3D_n7kuu")
+size = Vector3(0.05, 0.05, 0.5)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wrp7s"]
+height = 6.2
+radius = 4.7
+
+[node name="ElectricityFieldAoeSpell" type="Node3D" node_paths=PackedStringArray("CooldownTimer")]
+script = ExtResource("1_i4k2r")
+DamageUpdateFrequency = 5.0
+InnerDamage = 15
+CooldownTimer = NodePath("CooldownTimer")
+
+[node name="ElectricityFieldAoeSpellEffect" type="Node3D" parent="."]
+
+[node name="WaterParticles" type="GPUParticles3D" parent="ElectricityFieldAoeSpellEffect"]
+amount = 1
+lifetime = 6.13
+explosiveness = 0.67
+randomness = 0.76
+process_material = SubResource("ParticleProcessMaterial_b2lt1")
+draw_pass_1 = SubResource("CylinderMesh_ac6g7")
+draw_skin = SubResource("Skin_2t0o3")
+
+[node name="ElectricityParticles" type="GPUParticles3D" parent="ElectricityFieldAoeSpellEffect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51897, 0)
+emitting = false
+amount = 25
+lifetime = 0.42
+explosiveness = 0.33
+randomness = 0.52
+process_material = SubResource("ParticleProcessMaterial_n7iji")
+draw_pass_1 = SubResource("BoxMesh_k0s54")
+draw_skin = SubResource("Skin_2t0o3")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="ElectricityFieldAoeSpellEffect"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 17.675, 0)
+light_color = Color(1, 0.396078, 0, 1)
+light_energy = 12.798
+light_indirect_energy = 2.616
+light_volumetric_fog_energy = 9.404
+light_size = 0.273
+spot_range = 26.837
+spot_angle = 35.91
+
+[node name="ExplosionDelay" type="Timer" parent="ElectricityFieldAoeSpellEffect"]
+wait_time = 0.254
+one_shot = true
+
+[node name="AOE" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AOE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.25613, 0)
+shape = SubResource("CylinderShape3D_wrp7s")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="ElectricityFieldAoeSpellEffect/ExplosionDelay" to="." method="_on_explosion_delay_timeout"]
+[connection signal="body_entered" from="AOE" to="." method="_on_aoe_body_entered"]

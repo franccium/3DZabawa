@@ -1,0 +1,125 @@
+[gd_scene load_steps=14 format=3 uid="uid://ck8nr1atyr0qs"]
+
+[ext_resource type="Script" path="res://Spells/FireballSpell.cs" id="1_pvs6l"]
+[ext_resource type="Material" uid="uid://ipjo4h7ku3pg" path="res://Spells/Scenes/ProcessMaterials/fireball_processmat.tres" id="2_ftljc"]
+[ext_resource type="BoxMesh" uid="uid://p6vh15rlmg44" path="res://Spells/Scenes/DrawPasses/fireball_drawpass.tres" id="3_pa6b5"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3ljm8"]
+lifetime_randomness = 0.49
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+angular_velocity_min = 65.72
+angular_velocity_max = 130.44
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 28.09
+linear_accel_max = 48.31
+radial_accel_min = 4.49
+radial_accel_max = 53.93
+tangential_accel_max = 69.66
+damping_min = 59.55
+damping_max = 76.405
+turbulence_noise_strength = 11.34
+turbulence_noise_scale = 1.92
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7bvgr"]
+albedo_color = Color(1, 0.239216, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wkwxe"]
+material = SubResource("StandardMaterial3D_7bvgr")
+size = Vector3(200, 0.1, 0.1)
+
+[sub_resource type="Skin" id="Skin_2t0o3"]
+
+[sub_resource type="Gradient" id="Gradient_mweq0"]
+offsets = PackedFloat32Array(0, 0.513043, 0.956522)
+colors = PackedColorArray(1, 1, 0, 1, 1, 0.427451, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_35g3b"]
+gradient = SubResource("Gradient_mweq0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i4q81"]
+albedo_color = Color(1, 0.317647, 0, 1)
+albedo_texture = SubResource("GradientTexture2D_35g3b")
+proximity_fade_distance = 2121.28
+
+[sub_resource type="BoxMesh" id="BoxMesh_1d4rd"]
+material = SubResource("StandardMaterial3D_i4q81")
+size = Vector3(0.1, 0.1, 0.3)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lnp5i"]
+radius = 0.193556
+
+[sub_resource type="Skin" id="Skin_oadpu"]
+
+[node name="FireballProjectileSpell" type="Node3D" node_paths=PackedStringArray("CooldownTimer")]
+script = ExtResource("1_pvs6l")
+ProjectileDamage = 30.0
+ProjectileCount = 1
+ProjectileSpeed = 30.0
+ProjectileImpactForce = 5.0
+CooldownTimer = NodePath("CooldownTimer")
+
+[node name="ProjectileSpellEffect" type="Node3D" parent="."]
+
+[node name="PostExplosion" type="GPUParticles3D" parent="ProjectileSpellEffect"]
+emitting = false
+amount = 20
+lifetime = 0.27
+one_shot = true
+explosiveness = 0.83
+randomness = 0.79
+process_material = SubResource("ParticleProcessMaterial_3ljm8")
+draw_pass_1 = SubResource("BoxMesh_wkwxe")
+draw_skin = SubResource("Skin_2t0o3")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="ProjectileSpellEffect"]
+mass = 4.79
+gravity_scale = 0.05
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="ProjectileSpellEffect/RigidBody3D"]
+amount = 66
+lifetime = 0.21
+explosiveness = 0.75
+randomness = 0.78
+process_material = SubResource("ParticleProcessMaterial_3ljm8")
+draw_pass_1 = SubResource("BoxMesh_1d4rd")
+draw_skin = SubResource("Skin_2t0o3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ProjectileSpellEffect/RigidBody3D"]
+shape = SubResource("SphereShape3D_lnp5i")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="ProjectileSpellEffect/RigidBody3D"]
+radius = 0.191933
+
+[node name="OmniLight3D" type="OmniLight3D" parent="ProjectileSpellEffect/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+light_color = Color(1, 0.396078, 0, 1)
+light_energy = 11.468
+light_volumetric_fog_energy = 5.33
+light_size = 0.425
+omni_range = 10.65
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="ProjectileSpellEffect/RigidBody3D"]
+amount = 66
+lifetime = 0.21
+explosiveness = 0.75
+randomness = 0.78
+process_material = SubResource("ParticleProcessMaterial_3ljm8")
+draw_pass_1 = SubResource("BoxMesh_1d4rd")
+draw_skin = SubResource("Skin_2t0o3")
+
+[node name="explosion" type="GPUParticles3D" parent="ProjectileSpellEffect"]
+emitting = false
+amount = 70
+lifetime = 4.89
+explosiveness = 1.0
+randomness = 0.7
+process_material = ExtResource("2_ftljc")
+draw_pass_1 = ExtResource("3_pa6b5")
+draw_skin = SubResource("Skin_oadpu")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
