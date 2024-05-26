@@ -25,7 +25,7 @@ public partial class MPISevenEnemy : GunslingerEnemy
         base._Process(delta);
 	}
 
-	public override void InitAttack()
+    protected override void InitAttack()
 	{
 		// show weapon 
 		// rotate the weapon in the players direction
@@ -35,7 +35,7 @@ public partial class MPISevenEnemy : GunslingerEnemy
 		//_shootingController.Fire();
 	}
 
-	public override void StopAttack()
+    protected override void StopAttack()
 	{
 		_gun.Hide();
 	}

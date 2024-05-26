@@ -23,14 +23,14 @@ public partial class Barbarian : MeleeEnemy
         }
     }
 
-    public override void Wait()
+    protected override void Wait()
     {
         base.Wait();
 
         //_animationPlayer.Play("Sit_Floor_Idle");
     }
 
-    public override void InitAttack()
+    protected override void InitAttack()
     {
         //_animationPlayer.Play("1H_Melee_Attack_Chop");
     }

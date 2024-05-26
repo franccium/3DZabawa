@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Enemies/Shooters/Scripts/MPISevenEnemy.cs" id="1_p4swy"]
 [ext_resource type="PackedScene" uid="uid://bitt11xeriorh" path="res://Components/attribute_component.tscn" id="2_ofyqg"]
-[ext_resource type="PackedScene" uid="uid://cx3k1c32wb3hm" path="res://Models/smglol.glb" id="3_slath"]
+[ext_resource type="PackedScene" uid="uid://cx3k1c32wb3hm" path="res://Meshes/smglol.glb" id="3_slath"]
 [ext_resource type="PackedScene" uid="uid://duqggx736b1am" path="res://GUI/health_bar.tscn" id="4_43u3g"]
 [ext_resource type="Script" path="res://Enemies/Shooters/Scenes/SMGEffectController.cs" id="5_cvit7"]
 [ext_resource type="PackedScene" uid="uid://10as5ctv2ah1" path="res://Scenes/muzzle_flash_effect.tscn" id="6_0pt7m"]
@@ -35,7 +35,6 @@ DetectionRadius = 25.0
 NavigationAgent = NodePath("NavigationAgent3D")
 WaitTimer = NodePath("WaitTimer")
 HealthBar = NodePath("HealthBarViewport/HealthBar")
-gravity = 9.81
 
 [node name="HitboxArea" type="Area3D" parent="."]
 
@@ -101,6 +100,4 @@ _impactEffect = ExtResource("7_kno5r")
 _bulletProjectile = ExtResource("8_807ex")
 
 [connection signal="body_entered" from="HitboxArea" to="." method="_on_hitbox_area_body_entered"]
-[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_radius_body_entered"]
-[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_radius_body_exited"]
 [connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]

@@ -1,14 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://dmam2gvkyrtn4"]
+[gd_scene load_steps=17 format=3 uid="uid://dmam2gvkyrtn4"]
 
 [ext_resource type="PackedScene" uid="uid://dal7o4wr7q4al" path="res://Scenes/player.tscn" id="1_4phpu"]
+[ext_resource type="PackedScene" uid="uid://dvrall4fg487y" path="res://Scenes/game_controller.tscn" id="1_a1bjo"]
 [ext_resource type="PackedScene" uid="uid://bh6daa7miyx38" path="res://Enemies/enemy_controller.tscn" id="1_hjc4n"]
 [ext_resource type="Script" path="res://Levels/DamageableObject.cs" id="3_vcjo0"]
 [ext_resource type="PackedScene" uid="uid://dbx2adtwref3g" path="res://Scenes/bullet_impact_on_enemy_effect.tscn" id="4_vkyul"]
 [ext_resource type="PackedScene" uid="uid://b4t2km7ysnqu4" path="res://Scenes/normal_world_environment.tscn" id="5_5ersm"]
 [ext_resource type="Environment" uid="uid://b86qagy6s1f7o" path="res://Scenes/normal_world_environment_settings.tres" id="5_rvmu6"]
-[ext_resource type="PackedScene" uid="uid://334n74mdqm7m" path="res://Models/Environment/tree.glb" id="7_04hhn"]
-[ext_resource type="PackedScene" uid="uid://cscsb3w2mrqv6" path="res://Models/Environment/abstractcuberock.glb" id="8_xb6re"]
-[ext_resource type="PackedScene" uid="uid://7vnq5dpx244e" path="res://Models/Environment/terraintest.glb" id="9_m8gnq"]
+[ext_resource type="PackedScene" uid="uid://334n74mdqm7m" path="res://Meshes/Environment/tree.glb" id="7_04hhn"]
+[ext_resource type="PackedScene" uid="uid://cscsb3w2mrqv6" path="res://Meshes/Environment/abstractcuberock.glb" id="8_xb6re"]
+[ext_resource type="PackedScene" uid="uid://7vnq5dpx244e" path="res://Meshes/Environment/terraintest.glb" id="9_m8gnq"]
 [ext_resource type="PackedScene" uid="uid://b6h3p41vxsxfb" path="res://Shaders/water_shader_godottutorial_test.tscn" id="10_hr08j"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_hitoh"]
@@ -30,6 +31,8 @@ refraction_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_qt4hh"]
 
 [node name="TestLevel" type="Node3D"]
+
+[node name="GameController" parent="." instance=ExtResource("1_a1bjo")]
 
 [node name="EnemyController" parent="." instance=ExtResource("1_hjc4n")]
 

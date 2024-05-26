@@ -12,7 +12,7 @@ public partial class SniperEnemy : ShootingEnemy
 	{
 	}
 
-	public override void InitAttack()
+    protected override void InitAttack()
 	{
 
 	}

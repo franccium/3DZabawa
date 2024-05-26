@@ -6,3 +6,6 @@ animowane rece gracza
 
 
 particle atakow
+
+
+procedural animations / ragdolle 

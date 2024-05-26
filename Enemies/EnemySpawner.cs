@@ -8,6 +8,8 @@ public partial class EnemySpawner : Node
     {
         MPISeven,
         Barbarian,
+        Rogue,
+        Knight
     }
 
     private Dictionary<EnemyTypes, PackedScene> _enemyScenes = new Dictionary<EnemyTypes, PackedScene>();
@@ -16,6 +18,8 @@ public partial class EnemySpawner : Node
 	{
         _enemyScenes.Add(EnemyTypes.MPISeven, GD.Load<PackedScene>("res://Enemies/Shooters/Scenes/m_pi_se7en.tscn"));
         _enemyScenes.Add(EnemyTypes.Barbarian, GD.Load<PackedScene>("res://TestCharacters/barbarian.tscn"));
+        _enemyScenes.Add(EnemyTypes.Rogue, GD.Load<PackedScene>("res://TestCharacters/rogue_hooded.tscn"));
+        _enemyScenes.Add(EnemyTypes.Knight, GD.Load<PackedScene>("res://TestCharacters/knight.tscn"));
 	}
 
 	public override void _Process(double delta)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://dal7o4wr7q4al"]
 
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_drald"]
-[ext_resource type="PackedScene" uid="uid://ciqo51rw5iy6f" path="res://Models/wand12.glb" id="2_jrfmw"]
+[ext_resource type="PackedScene" uid="uid://ciqo51rw5iy6f" path="res://Meshes/wand12.glb" id="2_jrfmw"]
 [ext_resource type="PackedScene" uid="uid://ovklw6g3cnox" path="res://Scenes/arms_mesh.tscn" id="2_knjnp"]
 [ext_resource type="Script" path="res://Scenes/WeaponEffectsController.cs" id="3_86dnj"]
 [ext_resource type="PackedScene" uid="uid://10as5ctv2ah1" path="res://Scenes/muzzle_flash_effect.tscn" id="4_22jvf"]

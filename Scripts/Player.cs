@@ -36,7 +36,6 @@ public partial class Player : CharacterBody3D
 	public float CurrSpeed { get; set; } = 15f;
 
 	private Camera3D _camera;
-	public const float CameraSensitivity = 2.5f;
 
 	private AnimationPlayer _animationPlayer;
 
@@ -81,18 +80,10 @@ public partial class Player : CharacterBody3D
 		if (@event is InputEventMouseMotion)
 		{
 			InputEventMouseMotion motion = @event as InputEventMouseMotion;
-			Rotation = new Vector3(Rotation.X, Rotation.Y - motion.Relative.X * 0.001f * CameraSensitivity, Rotation.Z);
+			Rotation = new Vector3(Rotation.X, Rotation.Y - motion.Relative.X * 0.001f * GameSettings.CameraSensitivity, Rotation.Z);
 			// clamp to make it impossible to turn upside down
-			_camera.Rotation = new Vector3(Mathf.Clamp(_camera.Rotation.X - motion.Relative.Y * 0.001f * CameraSensitivity, -2, 2), _camera.Rotation.Y, _camera.Rotation.Z);
+			_camera.Rotation = new Vector3(Mathf.Clamp(_camera.Rotation.X - motion.Relative.Y * 0.001f * GameSettings.CameraSensitivity, -2, 2), _camera.Rotation.Y, _camera.Rotation.Z);
 		}
-	}
-
-	private void ToggleMouseMode()
-	{
-		if (Input.MouseMode == Input.MouseModeEnum.Captured)
-			Input.MouseMode = Input.MouseModeEnum.Visible;
-		else
-			Input.MouseMode = Input.MouseModeEnum.Captured;
 	}
 
 	/// <summary>
@@ -157,9 +148,6 @@ public partial class Player : CharacterBody3D
         {
             FireWeapon();
 		}
-
-		if (Input.IsActionJustPressed("escape"))
-			ToggleMouseMode();
 
 		return direction;
 	}

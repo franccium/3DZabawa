@@ -13,7 +13,7 @@ public partial class GunslingerEnemy : ShootingEnemy
         base._Process(delta);
 	}
 
-	public override void InitAttack()
+	protected override void InitAttack()
 	{
 		base.InitAttack();
 	}
